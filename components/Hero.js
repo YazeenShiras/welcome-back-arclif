@@ -9,12 +9,18 @@ const Hero = () => {
   const [resentBtn, setResentBtn] = useState(false);
   const [error, setError] = useState("none");
 
+  const [email, setEmail] = useState("");
+
   const handleChange = (event) => {
     setPhone(event.target.value);
     let isnum = /^\d+$/.test(event.target.value);
     if (isnum === true) {
       setIsPhone(true);
     }
+  };
+
+  const handleChangeMail = (event) => {
+    setEmail(event.target.value);
   };
 
   // Register Mobile number
@@ -63,6 +69,15 @@ const Hero = () => {
             </h1>
           </div>
           <p>Update your details</p>
+          <div style={{ marginBottom: "10px" }} className={styles.hero__input}>
+            <input
+              onChange={handleChangeMail}
+              type="email"
+              id="email"
+              placeholder="Email"
+              autoComplete="off"
+            />
+          </div>
           <div className={styles.hero__input}>
             <input
               onChange={handleChange}
