@@ -1,0 +1,166 @@
+.footer {
+  border-top: 1px solid #efefef;
+  background-color: #ffffff;
+  width: 100%;
+  height: 300px;
+  font-family: "Poppins", sans-serif;
+}
+
+.footer__top {
+  height: 240px;
+  width: 100%;
+  border-bottom: 1px solid #efefef;
+  display: flex;
+  justify-content: space-between;
+}
+
+.left__footer__top {
+  width: 25%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-left: 8vw;
+}
+
+.logo__footer {
+  height: 35px;
+  object-fit: contain;
+  margin-bottom: 15px;
+}
+
+.left__footer__top > p {
+  font-size: 14px;
+  color: gray;
+}
+
+.logo__footer > img {
+  height: 100%;
+  object-fit: contain;
+}
+
+.center__footer__top {
+  width: 40%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+}
+
+.left__center__footer {
+  display: flex;
+  flex-direction: column;
+}
+
+.content__cf {
+  display: flex;
+  margin-top: 15px;
+}
+
+.left__content__cf {
+  margin-right: 30px;
+}
+
+.footer__bottom {
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.footer__sample {
+  border-top: 1px solid #efefef;
+  height: 60px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 15px;
+}
+
+.footer__sample > p {
+  margin: 0px 10vw;
+  color: gray;
+}
+
+.footer__bottom > p {
+  margin: 0px 10vw;
+  color: gray;
+}
+
+.right__center__footer {
+  margin-left: 50px;
+}
+
+.right__footer__top {
+  margin-right: 10vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.left__content__cf > ul > li {
+  font-size: 13px;
+  list-style: none;
+  margin-bottom: 10px;
+  color: gray;
+  cursor: pointer;
+}
+
+.right__content__cf > ul > li {
+  font-size: 13px;
+  list-style: none;
+  margin-bottom: 10px;
+  color: gray;
+}
+
+.content__rf {
+  margin-top: 5px;
+}
+
+.content__rf > ul > li {
+  font-size: 13px;
+  list-style: none;
+  margin-bottom: 10px;
+  color: gray;
+}
+
+.social__footer > p {
+  font-weight: bolder;
+  margin-bottom: 5px;
+}
+
+.socialIcon__contanier {
+  width: 35px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.socialIcon {
+  margin-right: 10px;
+  cursor: pointer;
+}
+
+.footer__sample {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .footer__sample {
+    display: flex;
+  }
+  .footer {
+    display: none;
+  }
+}
+
+@media only screen and (max-width: 400px) {
+  .footer__sample > p {
+    margin: 0px 20px;
+    color: gray;
+    font-size: 12px;
+  }
+}

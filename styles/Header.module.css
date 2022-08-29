@@ -1,0 +1,127 @@
+.headerContainer {
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 1px 20px 1px #0000001a;
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  background-color: #ffffff;
+}
+
+.header {
+  height: 90px;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.header__left {
+  margin-left: 5vw;
+  margin-top: 5px;
+}
+
+.header__logo {
+  height: 35px;
+  object-fit: contain;
+}
+
+.header__right {
+  margin-top: 3px;
+  margin-right: 5vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header__nav > ul {
+  display: flex;
+}
+
+.header__nav > ul > li {
+  list-style: none;
+  margin-right: 30px;
+  font-size: 15px;
+  font-weight: 400;
+  color: #000000;
+}
+
+.header__nav > ul > li > a {
+  text-decoration: none;
+  color: #000000;
+}
+
+.loginButton__header {
+  height: 35px;
+  width: 80px;
+  border-radius: 10px;
+  color: #ffffff;
+  background-color: #000000;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 12px;
+  transition: all 0.5s ease;
+  text-decoration: none;
+}
+
+.loginButton__header:hover {
+  background-image: linear-gradient(to left, #000000, #414141);
+}
+
+.header__nav_mobile {
+  display: none;
+}
+
+.header__menu__container {
+  display: none;
+}
+
+@media only screen and (max-width: 500px) {
+  .header {
+    height: 70px;
+  }
+  .header__nav {
+    display: none;
+  }
+  .header__menu__container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header__nav_mobile {
+    display: flex;
+    height: 200px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    display: none;
+  }
+  .menuIcon {
+    margin-top: 5px;
+    margin-left: 20px;
+    cursor: pointer;
+  }
+  .closeIcon {
+    margin-left: 10px;
+    cursor: pointer;
+    display: none;
+    margin-top: 5px;
+  }
+  .header__nav_link {
+    height: calc(200px / 4);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    text-decoration: none;
+    border-top: 1px solid #e2e2e2;
+  }
+  .header__nav_link > a {
+    text-decoration: none;
+    color: #000000;
+  }
+}
