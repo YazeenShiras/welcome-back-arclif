@@ -22,17 +22,19 @@ const Hero = () => {
 
   const handleChangeMail = (event) => {
     setEmail(event.target.value);
-    let isEmail = email.includes("@") && email.includes(".com");
-    if (isEmail === true) {
-      setIsEmail(true);
-    }
   };
 
   // Register Mobile number
   const handleSubmit = () => {
-    if (isPhone && isEmail) {
+    if (
+      isPhone &&
+      email !== "" &&
+      email.includes("@") &&
+      email.includes(".com")
+    ) {
+      document.getElementById("hero__error").style.display = "none";
       axios
-        .post("https://agriha.herokuapp.com/auth/register_mobile", {
+        .post("https://arcliflanding.herokuapp.com/auth/register_mobile", {
           phone: `+91${phone}`,
           email: email,
         })

@@ -23,7 +23,7 @@ const HeroVerify = () => {
       };
       axios
         .post(
-          "https://agriha.herokuapp.com/auth/mobile_otp",
+          "https://arcliflanding.herokuapp.com/auth/mobile_otp",
           {
             otp: parseInt(otp),
           },

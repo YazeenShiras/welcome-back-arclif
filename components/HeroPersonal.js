@@ -20,7 +20,7 @@ const HeroPersonal = () => {
       },
     };
     axios
-      .get("https://agriha.herokuapp.com/account/subAccounts", config)
+      .get("https://arcliflanding.herokuapp.com/account/subAccounts", config)
       .then((response) => {
         console.log(response);
         setsubAccounts(response.data.subaccounts);
@@ -50,7 +50,7 @@ const HeroPersonal = () => {
     };
     axios
       .post(
-        "https://agriha.herokuapp.com/account/add_Subaccount",
+        "https://arcliflanding.herokuapp.com/account/add_Subaccount",
         {
           category: select.id,
         },

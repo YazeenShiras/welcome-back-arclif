@@ -9,14 +9,10 @@ const HeroCreate = () => {
   const [accounts, setaccounts] = useState();
   const [type, setType] = useState("Personal Account");
 
-  const onHover = () => {
-    document.getElementById("dateInput").type = "date";
-  };
-
   useEffect(() => {
     document.querySelector("input[type=radio][id=personal]").checked = "true";
     axios
-      .get("https://agriha.herokuapp.com/account")
+      .get("https://arcliflanding.herokuapp.com/account")
       .then((response) => {
         console.log(response);
         setaccounts(response.data.accountTypes);
@@ -59,56 +55,32 @@ const HeroCreate = () => {
       var personal = document.querySelector(
         "input[type=radio][id=personal]:checked"
       );
-      var buttonNext = document.getElementById("buttonNextClick");
-      var fname = document.getElementById("fname");
-      var lname = document.getElementById("lname");
-      var state = document.getElementById("state");
-      var dob = document.getElementById("dateInput");
-      var district = document.getElementById("district");
-      var city = document.getElementsByName("city");
       if (personal) {
-        if (
-          fname.value !== "" &&
-          lname.value !== "" &&
-          state.value !== "" &&
-          district.value !== "" &&
-          city.value !== "" &&
-          dob.value !== ""
-        ) {
-          const token = localStorage.getItem("token");
-          let config = {
-            headers: {
-              Authorization: `Bearer ${token}`,
+        const token = localStorage.getItem("token");
+        let config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        axios
+          .post(
+            "https://arcliflanding.herokuapp.com/account/personalAccount",
+            {
+              accountType: personalAccount[0]._id,
             },
-          };
-          axios
-            .post(
-              "https://agriha.herokuapp.com/account/personalAccount",
-              {
-                firstname: fname.value,
-                lastname: lname.value,
-                DOB: dob.value,
-                state: state.value,
-                district: district.value,
-                city: city.value,
-                accountType: personalAccount[0]._id,
-              },
-              config
-            )
-            .then((response) => {
-              if (response.data.status === 200) {
-                window.location.href = page;
-              }
-              if (response.data.status === 409) {
-                toast.error(response.data.message);
-              }
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        } else {
-          toast.error("Fill *all field");
-        }
+            config
+          )
+          .then((response) => {
+            if (response.data.status === 200) {
+              window.location.href = page;
+            }
+            if (response.data.status === 409) {
+              toast.error(response.data.message);
+            }
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       }
     }
     if (type === "Business Account") {
@@ -118,54 +90,34 @@ const HeroCreate = () => {
       var business = document.querySelector(
         "input[type=radio][id=business]:checked"
       );
-      var companyname = document.getElementById("fname");
-      var state = document.getElementById("state");
-      var year = document.getElementById("dateInput");
-      var district = document.getElementById("district");
-      var city = document.getElementById("city");
       if (business) {
-        if (
-          companyname.value !== "" &&
-          year.value !== "" &&
-          state.value !== "" &&
-          district.value !== "" &&
-          city.value !== ""
-        ) {
-          const token = localStorage.getItem("token");
-          let config = {
-            headers: {
-              Authorization: `Bearer ${token}`,
+        const token = localStorage.getItem("token");
+        let config = {
+          headers: {
+            Authorization: `Bearer ${token}`,
+          },
+        };
+        axios
+          .post(
+            "https://arcliflanding.herokuapp.com/account/businessAccount",
+            {
+              accountType: businessAccount[0]._id,
             },
-          };
-          axios
-            .post(
-              "https://agriha.herokuapp.com/account/businessAccount",
-              {
-                companyname: companyname.value,
-                foundYear: year.value,
-                state: state.value,
-                district: district.value,
-                city: city.value,
-                accountType: businessAccount[0]._id,
-              },
-              config
-            )
-            .then((response) => {
-              console.log(response);
-              if (response.data.status === 200) {
-                window.location.href = page;
-              }
-              if (response.data.status === 409) {
-                toast.error(response.data.message);
-              }
-              console.log(response);
-            })
-            .catch((error) => {
-              console.log(error);
-            });
-        } else {
-          toast.error("Fill *all field");
-        }
+            config
+          )
+          .then((response) => {
+            console.log(response);
+            if (response.data.status === 200) {
+              window.location.href = page;
+            }
+            if (response.data.status === 409) {
+              toast.error(response.data.message);
+            }
+            console.log(response);
+          })
+          .catch((error) => {
+            console.log(error);
+          });
       }
     }
   };
