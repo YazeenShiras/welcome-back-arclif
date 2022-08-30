@@ -38,10 +38,7 @@ const HeroProffessional = () => {
       },
     };
     axios
-      .get(
-        "https://arclifauth-ki3qrbsnza-uc.a.run.app/account/sub_subaccounts",
-        config
-      )
+      .get("https://agriha.herokuapp.com/account/sub_subaccounts", config)
       .then((response) => {
         setsub_subaccounts(response.data.sub_subaccounts);
       })
@@ -133,7 +130,7 @@ const HeroProffessional = () => {
         };
         axios
           .post(
-            "https://arclifauth-ki3qrbsnza-uc.a.run.app/account/add_sub_subaccounts",
+            "https://agriha.herokuapp.com/account/add_sub_subaccounts",
             {
               subaccount: selectfreelancer.subaccount,
               profession: value.profession,
@@ -161,7 +158,7 @@ const HeroProffessional = () => {
         };
         axios
           .post(
-            "https://arclifauth-ki3qrbsnza-uc.a.run.app/account/add_sub_subaccounts",
+            "https://agriha.herokuapp.com/account/add_sub_subaccounts",
             selectEmployee,
             config
           )

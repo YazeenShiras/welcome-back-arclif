@@ -20,10 +20,7 @@ const HeroBusiness = () => {
       },
     };
     axios
-      .get(
-        "https://arclifauth-ki3qrbsnza-uc.a.run.app/account/business_subaccounts",
-        config
-      )
+      .get("https://agriha.herokuapp.com/account/business_subaccounts", config)
       .then((response) => {
         console.log(response);
         setSubaccounts(response.data.subAccounts);

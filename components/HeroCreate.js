@@ -16,7 +16,7 @@ const HeroCreate = () => {
   useEffect(() => {
     document.querySelector("input[type=radio][id=personal]").checked = "true";
     axios
-      .get("https://arclifauth-ki3qrbsnza-uc.a.run.app/account")
+      .get("https://agriha.herokuapp.com/account")
       .then((response) => {
         console.log(response);
         setaccounts(response.data.accountTypes);
@@ -83,7 +83,7 @@ const HeroCreate = () => {
           };
           axios
             .post(
-              "https://arclifauth-ki3qrbsnza-uc.a.run.app/account/personalAccount",
+              "https://agriha.herokuapp.com/account/personalAccount",
               {
                 firstname: fname.value,
                 lastname: lname.value,
@@ -139,7 +139,7 @@ const HeroCreate = () => {
           };
           axios
             .post(
-              "https://arclifauth-ki3qrbsnza-uc.a.run.app/account/businessAccount",
+              "https://agriha.herokuapp.com/account/businessAccount",
               {
                 companyname: companyname.value,
                 foundYear: year.value,

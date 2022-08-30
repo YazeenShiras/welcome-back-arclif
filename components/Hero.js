@@ -6,6 +6,7 @@ import axios from "axios";
 const Hero = () => {
   const [phone, setPhone] = useState("");
   const [isPhone, setIsPhone] = useState(false);
+  const [isEmail, setIsEmail] = useState(false);
   const [resentBtn, setResentBtn] = useState(false);
   const [error, setError] = useState("none");
 
@@ -21,18 +22,20 @@ const Hero = () => {
 
   const handleChangeMail = (event) => {
     setEmail(event.target.value);
+    let isEmail = email.includes("@") && email.includes(".com");
+    if (isEmail === true) {
+      setIsEmail(true);
+    }
   };
 
   // Register Mobile number
   const handleSubmit = () => {
-    if (isPhone) {
+    if (isPhone && isEmail) {
       axios
-        .post(
-          "https://arclifauth-ki3qrbsnza-uc.a.run.app/auth/register_mobile",
-          {
-            phone: `+91${phone}`,
-          }
-        )
+        .post("https://agriha.herokuapp.com/auth/register_mobile", {
+          phone: `+91${phone}`,
+          email: email,
+        })
         .then(function (response) {
           console.log(response.data);
           if (response.data.status === 200) {
@@ -48,6 +51,9 @@ const Hero = () => {
               error.response.data.message;
           }
         });
+    } else {
+      document.getElementById("hero__error").style.display = "flex";
+      document.getElementById("hero__error").innerHTML = "Must fill all fields";
     }
   };
 
@@ -74,7 +80,7 @@ const Hero = () => {
               onChange={handleChangeMail}
               type="email"
               id="email"
-              placeholder="Email"
+              placeholder="Email linked with Arclif"
               autoComplete="off"
             />
           </div>
